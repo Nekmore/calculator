@@ -11,3 +11,6 @@ body {
 }
 
 
+input, select, button {
+	outline: none;
+}

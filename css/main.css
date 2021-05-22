@@ -6,7 +6,7 @@
 		"img1 income"
 		"additional_information img2"
 		"calculate .";
-	grid-template-rows: 1fr 1fr 0.2fr;
+	grid-template-rows: 1fr 1fr;
   	grid-template-columns: 1fr 1fr;
 	grid-gap: 5px; 
 	justify-items: center;
@@ -47,6 +47,8 @@
 	height: 41px;
 	border-radius: 6px;
 	border: 1px solid #888888;
+	font-size: 20px;
+	text-align: end;
 }
 
 .income h2 {
@@ -67,6 +69,8 @@
 	height: 41px;
 	border-radius: 6px;
 	border: 1px solid #888888;
+	font-size: 20px;
+	text-align: center;
 }
 
 .additional_information h2 {
@@ -78,17 +82,13 @@
 	color: #888888;
 }
 
-.calculate > button {
+.family_information > select {
 	width: 246px;
 	height: 41px;
 	border-radius: 6px;
 	border: 1px solid #888888;
-	font-size: 18px;
-}
-
-.calculate > button > i {
-	position: relative;
-	top: 2px;
+	font-size: 20px;
+	text-align-last: center;
 }
 
 
@@ -167,6 +167,47 @@
 }
 
 .button_reload > button > i {
+	position: relative;
+	top: 2px;
+}
+
+.slider {
+	display: flex;
+	justify-content: center;
+	position: relative;
+	overflow: hidden;
+}
+	
+.slider_body {
+	min-width: 320px;
+	max-width: 1920px;
+	display: flex;
+	position: relative;
+	align-items: center;
+	transition: all .5s ease;
+}
+	
+.slider_slide {
+	min-width: 100%;
+	background-size: cover;
+	background-position: center;
+}
+
+.buttons_step {
+	max-width: 725px;
+	height: 75px;
+	margin: 0 auto;
+}
+
+.buttons_step > button {
+	width: 246px;
+	height: 41px;
+	border-radius: 6px;
+	border: 1px solid #888888;
+	font-size: 18px;
+}
+
+.buttons_step > button > i {
 	position: relative;
 	top: 2px;
 }

@@ -9,66 +9,83 @@
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" type="text/css" href="css/header.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <title>Сайт</title>
+    <title>Налоговый калькулятор</title>
 </head>
 <body>
     <main>
-        <div class="data_for_calculation">
-            <div class="img1">
-                <img src="img/image1.png" alt="#">
-            </div>
-            <div class="income">
-                <div class="monthly_income">
-                    <h2>Доход за месяц</h2>
-                    <p>Доход физ лица за 1 месяц, с которого нужно удержать подоходный доход</p>
-                    <input type="text" id="monthly_income_form"><label for="monthly_income_form">руб.</label>
-                </div>
-                <div class="year-to-date_income">
-                    <h2>Доход с начала года</h2>
-                    <p>Доход физического лица, уже полученный им с начала года до месяца, для которого производится расчет (ДСУММ)</p>
-                    <input type="text" id="year-to-date_income_form"><label for="year-to-date_income_form">руб.</label>
+        <div id="calc">
+            <div class='slider js-slider'>
+                <div class="slider_body" v-bind:style='{left: sliderOffsetLeft + "px"}'>
+                  <div class="slider_slide js-slide" v-for='slide in sliderList'>
+                    <components :is="slide"></components>
+                  </div>
                 </div>
             </div>
-            <div class="additional_information">
-                <div class="children">
-                    <h2>Количество детей</h2>
-                    <p>Количество детей до 18 лет, имеющихся им в иждивении у физического лица (ДЕТИ)</p>
-                    <input type="text">
-                </div>
-                <div class="family_information">
-                    <h2>Сведения о семье</h2>
-                    <p>Сведения о том, является ли семья физического лица полной</p>
-                    <input type="text">
-                </div>
-            </div>
-            <div class="img2">
-                <img src="img/image2.png" alt="#">
-            </div>
-            <div class="calculate">
-                <button type="button">Рассчитать налог <i class="ci-long_right"></i></button>
+            <div class="buttons_step">
+                <button v-bind:style="butNal" type="button" v-on:click='nextSlide'>Рассчитать налог <i class="ci-long_right"></i></button>
             </div>
         </div>
-        <div class="calculated">
-            <div class="img3">
-                <img src="img/image3.png" alt="#">
+        <template id="data_for_calculation_template">
+            <div class="data_for_calculation">
+                <div class="img1">
+                    <img src="img/image1.png" alt="#">
+                </div>
+                <div class="income">
+                    <div class="monthly_income">
+                        <h2>Доход за месяц</h2>
+                        <p>Доход физ лица за 1 месяц, с которого нужно удержать подоходный доход</p>
+                        <input type="text" id="monthly_income_form"><label for="monthly_income_form">руб.</label>
+                    </div>
+                    <div class="year-to-date_income">
+                        <h2>Доход с начала года</h2>
+                        <p>Доход физического лица, уже полученный им с начала года до месяца, для которого производится расчет (ДСУММ)</p>
+                        <input type="text" id="year-to-date_income_form"><label for="year-to-date_income_form">руб.</label>
+                    </div>
+                </div>
+                <div class="additional_information">
+                    <div class="children">
+                        <h2>Количество детей</h2>
+                        <p>Количество детей до 18 лет, имеющихся им в иждивении у физического лица (ДЕТИ)</p>
+                        <input type="text">
+                    </div>
+                    <div class="family_information">
+                        <h2>Сведения о семье</h2>
+                        <p>Сведения о том, является ли семья физического лица полной</p>
+                        <select name="family">
+                            <option value="all">Полная</option>
+                            <option value="neall">Неполная</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="img2">
+                    <img src="img/image2.png" alt="#">
+                </div>
             </div>
-            <div class="data_calculated">
-                <div class="income_tax">
-                    <h2>Подоходный налог</h2>
-                    <h1>3 174,11 <label> рублей </label></h1>
-                    <p>Три тысячи сто семьдесят четыре рублей и одинадцать копеек</p>
+        </template>
+        <template id="calculated_template">
+            <div class="calculated">
+                <div class="img3">
+                    <img src="img/image3.png" alt="#">
                 </div>
-                <div class="net_income">
-                    <h2>Чистый доход</h2>
-                    <h1>46 825,89 <label>рублей</label></h1>
-                    <p>Сорок шесть тысяч восемьсот двадцать пять рублей и восемьдесят девять копеек</p>
-                </div>
-                <div class="button_reload">
-                    <button type="button">Рассчитать заново <i class="ci-refresh"></i></button>
+                <div class="data_calculated">
+                    <div class="income_tax">
+                        <h2>Подоходный налог</h2>
+                        <h1>3 174,11 <label> рублей </label></h1>
+                        <p>Три тысячи сто семьдесят четыре рублей и одинадцать копеек</p>
+                    </div>
+                    <div class="net_income">
+                        <h2>Чистый доход</h2>
+                        <h1>46 825,89 <label>рублей</label></h1>
+                        <p>Сорок шесть тысяч восемьсот двадцать пять рублей и восемьдесят девять копеек</p>
+                    </div>
+                    <div class="button_reload" id="button_reload">
+                        <button type="button">Рассчитать заново <i class="ci-refresh"></i></button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </template>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
