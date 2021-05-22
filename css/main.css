@@ -90,3 +90,82 @@
 	position: relative;
 	top: 2px;
 }
+
+
+.calculated {
+	max-width: 1035px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-areas: 
+		"img3 data_calculated"
+		". button_reload";
+	grid-template-rows: 1fr 0.2fr;
+  	grid-template-columns: 1fr 1fr;
+	grid-gap: 5px; 
+	justify-items: center;
+	align-items: center;
+}
+
+.img3 {
+	grid-area: img3;
+}
+
+.data_calculated {
+	max-width: 430px;
+	height: 100%;
+	grid-area: data_calculated;
+	justify-self: end;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.button_reload {
+	grid-area: button_reload;
+	justify-self: start;
+}
+
+.data_calculated h2, .data_calculated label {
+	margin: 0;
+	font-size: 24px;
+}
+
+.data_calculated h1 {
+	margin: 8px 0 8px 0;
+	font-size: 48px;
+}
+
+.data_calculated p {
+	margin: 0;
+	font-size: 14px;
+	color: #888888;
+}
+
+.income_tax > h1 {
+	color: #ED4546;
+}
+
+.net_income > h1 {
+	color: #3D98E7;
+}
+
+.income_tax > h1 > label {
+	color: #888888;
+}
+
+.net_income > h1 > label {
+	color: #888888;
+}
+
+.button_reload > button {
+	width: 213px;
+	height: 41px;
+	border-radius: 6px;
+	border: 1px solid #888888;
+	font-size: 18px;
+}
+
+.button_reload > button > i {
+	position: relative;
+	top: 2px;
+}
