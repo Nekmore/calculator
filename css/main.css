@@ -1,0 +1,92 @@
+.data_for_calculation {
+	max-width: 725px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-areas: 
+		"img1 income"
+		"additional_information img2"
+		"calculate .";
+	grid-template-rows: 1fr 1fr 0.2fr;
+  	grid-template-columns: 1fr 1fr;
+	grid-gap: 5px; 
+	justify-items: center;
+	align-items: center;
+
+}
+
+.img1 {
+	max-width: 400px;
+	grid-area: img1;
+}
+
+.income {
+	max-width: 240px;
+	grid-area: income;
+	justify-self: end;
+}
+
+.additional_information {
+	max-width: 240px;
+	grid-area: additional_information;
+	justify-self: start;
+}
+
+.calculate {
+	grid-area: calculate;
+	justify-self: start;
+}
+
+.img2 {
+	max-width: 400px;
+	grid-area: img2;
+}
+
+
+.income input {
+	width: 144px;
+	height: 41px;
+	border-radius: 6px;
+	border: 1px solid #888888;
+}
+
+.income h2 {
+	font-size: 20px;
+}
+
+.income p {
+	font-size: 12px;
+	color: #888888;
+}
+
+.income label {
+	margin-left: 12px;
+}
+
+.additional_information input {
+	width: 241px;
+	height: 41px;
+	border-radius: 6px;
+	border: 1px solid #888888;
+}
+
+.additional_information h2 {
+	font-size: 20px;
+}
+
+.additional_information p {
+	font-size: 12px;
+	color: #888888;
+}
+
+.calculate > button {
+	width: 246px;
+	height: 41px;
+	border-radius: 6px;
+	border: 1px solid #888888;
+	font-size: 18px;
+}
+
+.calculate > button > i {
+	position: relative;
+	top: 2px;
+}

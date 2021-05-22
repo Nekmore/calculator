@@ -1,0 +1,13 @@
+@font-face {
+    font-family: Roboto; /* Имя шрифта */
+    src: url(../fonts/roboto/Roboto-Light.ttf); /* Путь к файлу со шрифтом */
+}
+
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Roboto;
+}
+
+
