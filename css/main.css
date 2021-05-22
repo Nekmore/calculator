@@ -121,6 +121,7 @@
 }
 
 .button_reload {
+	max-width: 430px;
 	grid-area: button_reload;
 	justify-self: start;
 }
