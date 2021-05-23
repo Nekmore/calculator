@@ -48,7 +48,7 @@
                 <img src="img/image2.png" alt="#">
             </div>
             <div class="buttons_step">
-                <button type="button" v-on:click="сalculate_all()">Рассчитать налог <i class="ci-long_right"></i></button>
+                <button type="button" v-on:click="сalculate_all()" v-scroll-to="'.calculated'">Рассчитать налог <i class="ci-long_right"></i></button>
             </div>
         </div>
         <div class="calculated">
@@ -58,12 +58,12 @@
             <div class="data_calculated">
                 <div class="income_tax">
                     <h2>Подоходный налог</h2>
-                    <h1>{{ all }} <label> рублей </label></h1>
+                    <h1>{{ inc }} <label> рублей </label></h1>
                     <p>Три тысячи сто семьдесят четыре рублей и одинадцать копеек</p>
                 </div>
                 <div class="net_income">
                     <h2>Чистый доход</h2>
-                    <h1>46 825,89 <label>рублей</label></h1>
+                    <h1>{{ netInc }} <label>рублей</label></h1>
                     <p>Сорок шесть тысяч восемьсот двадцать пять рублей и восемьдесят девять копеек</p>
                 </div>
                 <div class="button_reload" id="button_reload">
@@ -73,6 +73,7 @@
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-scrollto"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

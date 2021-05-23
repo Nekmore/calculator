@@ -6,12 +6,15 @@ window.onload = function () {
       year: '',
       child: '',
       fam: '',
-      all: 2,
+      inc: 0,
+      netInc: 0,
     },
 
     methods: {
       сalculate_all: function() {
-        this.all = this.month * this.year
+        this.inc = this.month * this.year
+        this.netInc = this.month * this.year + 150
+
       }
     }
   })

@@ -108,7 +108,7 @@
 
 .calculated {
 	max-width: 1035px;
-	margin: 0 auto;
+	margin: 100px auto 0 auto;
 	display: grid;
 	grid-template-areas: 
 		"img3 data_calculated"
