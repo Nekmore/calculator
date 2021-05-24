@@ -48,12 +48,8 @@
                 <img src="img/image2.png" alt="#">
             </div>
             <div class="buttons_step">
-<<<<<<< HEAD
                 <button type="button" v-on:click="сalculate_nal()" v-scroll-to="'.calculated'">Рассчитать налог <i class="ci-long_right"></i></button>
                 <p>{{ error }}</p>
-=======
-                <button type="button" v-on:click="сalculate_all()" v-scroll-to="'.calculated'">Рассчитать налог <i class="ci-long_right"></i></button>
->>>>>>> b837efe329572bef09baa98fa6a973552fb7fe3f
             </div>
         </div>
         <div class="calculated">
@@ -64,18 +60,10 @@
                 <div class="income_tax">
                     <h2>Подоходный налог</h2>
                     <h1>{{ inc }} <label> рублей </label></h1>
-<<<<<<< HEAD
-=======
-                    <p>Три тысячи сто семьдесят четыре рублей и одинадцать копеек</p>
->>>>>>> b837efe329572bef09baa98fa6a973552fb7fe3f
                 </div>
                 <div class="net_income">
                     <h2>Чистый доход</h2>
                     <h1>{{ netInc }} <label>рублей</label></h1>
-<<<<<<< HEAD
-=======
-                    <p>Сорок шесть тысяч восемьсот двадцать пять рублей и восемьдесят девять копеек</p>
->>>>>>> b837efe329572bef09baa98fa6a973552fb7fe3f
                 </div>
                 <div class="button_reload" id="button_reload">
                     <button type="button" v-scroll-to="'.data_for_calculation'" v-on:click="reload_calc()">Рассчитать заново <i class="ci-refresh"></i></button>
@@ -85,6 +73,7 @@
     </main>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-scrollto"></script>
+    <script type="text/javascript" src="rubles/lib/rubles.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
