@@ -12,6 +12,7 @@ window.onload = function () {
       incRubles: 'ноль рублей ноль копеек',
       netIncRubles: 'ноль рублей ноль копеек',
       error: '',
+      scroll: '.calculated'
     },
 
     methods: {
@@ -20,6 +21,7 @@ window.onload = function () {
         this.year = Number(this.year)
         this.child = Number(this.child)
         if (this.month >= 0 && this.year >= 0 && this.child >= 0 && !isNaN(this.month) && !isNaN(this.year) && !isNaN(this.child)) {
+          this.scroll = ".calculated"
           if (this.year <= 40000) {
             if(this.fam == "t") {
               this.deduct = 600 + 600 * this.child
@@ -40,6 +42,16 @@ window.onload = function () {
         } 
         else {
           this.error = "Введите положительные значения"
+          this.scroll = ".data_for_calculation"
+          this.month = ''
+          this.year = ''
+          this.child = 0
+          this.fam = 't'
+          this.deduct = ''
+          this.inc = '0.00'
+          this.netInc = '0.00'
+          this.incRubles = 'ноль рублей ноль копеек'
+          this.netIncRubles = 'ноль рублей ноль копеек'
         }
         this.prescription()
       },
@@ -153,4 +165,34 @@ window.onload = function () {
   })
 }
 
+
+var VueScrollTo = require('vue-scrollto');
+ 
+var options = {
+    container: '#container',
+    easing: 'ease-in',
+    lazy: false,
+    offset: -60,
+    force: true,
+    cancelable: true,
+    onStart: function(element) {
+      // scrolling started
+    },
+    onDone: function(element) {
+      // scrolling is done
+    },
+    onCancel: function() {
+      // scrolling has been interrupted
+    },
+    x: false,
+    y: true
+}
+ 
+// var cancelScroll = VueScrollTo.scrollTo(element, duration, options)
+ 
+// or alternatively inside your components you can use
+let cancelScroll = this.$scrollTo(element, duration, options)
+ 
+// to cancel scrolling you can call the returned function
+cancelScroll()
 
