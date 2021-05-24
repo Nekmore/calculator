@@ -118,7 +118,6 @@ window.onload = function () {
 
         this.netIncRubles = rubles(this.netInc)
         netCopRubles = this.netIncRubles.split(' ').pop()
-        // this.netIncRubles = this.netIncRubles.replace(/[0-9].*/, '')
         if (this.netIncRubles == 0) {
           this.netIncRubles = "ноль рублей ноль копеек"
         } else if (this.pennyN() == 0) {
