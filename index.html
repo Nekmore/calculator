@@ -60,10 +60,12 @@
                 <div class="income_tax">
                     <h2>Подоходный налог</h2>
                     <h1>{{ inc }} <label> рублей </label></h1>
+                    <p>{{ incRubles }}</p>
                 </div>
                 <div class="net_income">
                     <h2>Чистый доход</h2>
                     <h1>{{ netInc }} <label>рублей</label></h1>
+                    <p>{{ netIncRubles }}</p>
                 </div>
                 <div class="button_reload" id="button_reload">
                     <button type="button" v-scroll-to="'.data_for_calculation'" v-on:click="reload_calc()">Рассчитать заново <i class="ci-refresh"></i></button>

@@ -128,7 +128,7 @@
 	max-width: 430px;
 	height: 100%;
 	grid-area: data_calculated;
-	justify-self: center;
+	justify-self: end;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;

@@ -9,6 +9,8 @@ window.onload = function () {
       deduct: '',
       inc: '0.00',
       netInc: '0.00',
+      incRubles: 'ноль рублей ноль копеек',
+      netIncRubles: 'ноль рублей ноль копеек',
       error: '',
     },
 
@@ -29,25 +31,111 @@ window.onload = function () {
             if (this.inc < 0) {
               this.inc = 0
             }
-          } 
-          else if (this.year > 40000) {
+          } else if (this.year > 40000) {
             this.inc = 0.13 * this.month
             if (this.inc < 0) {
               this.inc = 0
             }
           }
-          this.prescription()
         } 
         else {
           this.error = "Введите положительные значения"
         }
-        
+        this.prescription()
       },
       prescription: function() {
         this.netInc = this.month - this.inc
         this.inc = this.inc.toFixed(2)
         this.netInc = this.netInc.toFixed(2)
+        this.rublesInc()
         
+      },
+      pennyI: function() {
+        if (this.inc.indexOf('.') !== -1) {
+          let splt = this.inc.split('.')
+          let number = splt[0]
+          let decimals = splt[1]
+          return decimals
+        } else {
+          return 0
+        }
+      },
+      pennyN: function() {
+        if (this.netInc.indexOf('.') !== -1) {
+          let splt = this.netInc.split('.')
+          let number = splt[0]
+          let decimals = splt[1]
+          return decimals
+        } else {
+          return 0
+        }
+      },
+      rublesInc: function() {
+        this.incRubles = rubles(this.inc)
+        let copRubles = this.incRubles.split(' ').pop()
+        if (this.inc == 0) {
+          this.incRubles = "ноль рублей ноль копеек"
+        } else if (this.pennyI() == 0) {
+          this.incRubles = this.incRubles.replace(/[0-9].*/, '') + "ноль копеек"
+        } else {
+          this.incRubles = rubles(this.inc)
+          let incRub = this.incRubles.replace(/[0-9].*/, '')
+
+          let incCop = rubles(this.pennyI()).replace(/руб.*/, '')
+
+          if (this.pennyI() == 1) {
+            incCop = "одна " + copRubles 
+          } 
+          else if (this.pennyI() == 2) {
+            incCop = "две " + copRubles 
+          } 
+          else if (this.pennyI() > 20 && this.pennyI().slice(-1) == 1) {
+            incCop = incCop.split(" ")[0]
+            incCop = incCop + " одна " + copRubles 
+          }
+          else if (this.pennyI() > 20 && this.pennyI().slice(-1) == 2) {
+            incCop = incCop.split(" ")[0]
+            incCop = incCop + " две " + copRubles 
+          } 
+          else {
+            incCop = incCop + copRubles 
+          }
+          this.incRubles = incRub + incCop
+        }
+
+
+        this.netIncRubles = rubles(this.netInc)
+        netCopRubles = this.netIncRubles.split(' ').pop()
+        // this.netIncRubles = this.netIncRubles.replace(/[0-9].*/, '')
+        if (this.netIncRubles == 0) {
+          this.netIncRubles = "ноль рублей ноль копеек"
+        } else if (this.pennyN() == 0) {
+          this.netIncRubles = this.netIncRubles.replace(/[0-9].*/, '') + "ноль копеек"
+        } else {
+          this.netIncRubles = rubles(this.netInc)
+          let netIncRub = this.netIncRubles.replace(/[0-9].*/, '')
+
+          let netIncCop = rubles(this.pennyN()).replace(/руб.*/, '')
+
+          if (this.pennyN() == 1) {
+            netIncCop = "одна " + netCopRubles 
+          } 
+          else if (this.pennyN() == 2) {
+            netIncCop = "две " + netCopRubles 
+          } 
+          else if (this.pennyN() > 20 && this.pennyN().slice(-1) == 1) {
+            netIncCop = netIncCop.split(" ")[0]
+            netIncCop = netIncCop + " одна " + netCopRubles 
+          }
+          else if (this.pennyN() > 20 && this.pennyN().slice(-1) == 2) {
+            netIncCop = netIncCop.split(" ")[0]
+            netIncCop = netIncCop + " две " + netCopRubles 
+          } 
+          else {
+            netIncCop = netIncCop + netCopRubles 
+          }
+          this.netIncRubles = netIncRub + netIncCop
+        }
       },
       reload_calc() {
           this.month = ''
@@ -57,6 +145,8 @@ window.onload = function () {
           this.deduct = ''
           this.inc = '0.00'
           this.netInc = '0.00'
+          this.incRubles = 'ноль рублей ноль копеек'
+          this.netIncRubles = 'ноль рублей ноль копеек'
           this.error = ''
       }
     }
