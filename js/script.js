@@ -4,6 +4,7 @@ window.onload = function () {
     data: {
       month: '',
       year: '',
+<<<<<<< HEAD
       child: 0,
       fam: 't',
       deduct: '',
@@ -58,6 +59,19 @@ window.onload = function () {
           this.inc = '0.00'
           this.netInc = '0.00'
           this.error = ''
+=======
+      child: '',
+      fam: '',
+      inc: 0,
+      netInc: 0,
+    },
+
+    methods: {
+      сalculate_all: function() {
+        this.inc = this.month * this.year
+        this.netInc = this.month * this.year + 150
+
+>>>>>>> b837efe329572bef09baa98fa6a973552fb7fe3f
       }
     }
   })
