@@ -39,8 +39,8 @@
                     <h2>Сведения о семье</h2>
                     <p>Сведения о том, является ли семья физического лица полной</p>
                     <select name="family" v-model="fam">
-                        <option value="t">Полная</option>
-                        <option value="f">Неполная</option>
+                        <option value="t">полная</option>
+                        <option value="f">неполная</option>
                     </select>
                 </div>
             </div>
@@ -69,6 +69,9 @@
                 </div>
                 <div class="button_reload" id="button_reload">
                     <button type="button" v-scroll-to="'.data_for_calculation'" v-on:click="reload_calc()">Рассчитать заново <i class="ci-refresh"></i></button>
+                </div>
+                <div>
+                    © NalKal 2021.
                 </div>
             </div>
         </div>

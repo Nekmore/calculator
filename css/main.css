@@ -107,15 +107,14 @@
 
 
 .calculated {
-	max-width: 1035px;
+	max-width: 875px;
 	margin: 100px auto 0 auto;
 	display: grid;
 	grid-template-areas: 
-		"img3 data_calculated"
-		". button_reload";
-	grid-template-rows: 1fr 0.2fr;
+		"img3 data_calculated";
+	grid-template-rows: 1fr;
   	grid-template-columns: 1fr 1fr;
-	grid-gap: 5px; 
+	grid-gap: 5px;
 	justify-items: center;
 	align-items: center;
 }
@@ -126,7 +125,7 @@
 
 .data_calculated {
 	max-width: 430px;
-	height: 100%;
+	height: 510px;
 	grid-area: data_calculated;
 	justify-self: end;
 	display: flex;

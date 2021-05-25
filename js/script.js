@@ -83,14 +83,17 @@ window.onload = function () {
         }
       },
       rublesInc: function() {
-        this.incRubles = rubles(this.inc)
-        copRubles = this.incRubles.split(' ').pop()
-        if (this.inc == 0) {
+        console.log(this.inc)
+        if (this.inc <= 0) {
           this.incRubles = "ноль рублей ноль копеек"
-        } else if (this.pennyI() == 0) {
-          this.incRubles = this.incRubles.replace(/[0-9].*/, '') + "ноль копеек"
-        } else {
+        } 
+        else if (this.pennyI() == 0) {
           this.incRubles = rubles(this.inc)
+          this.incRubles = this.incRubles.replace(/[0-9].*/, '') + "ноль копеек"
+        }
+        else {
+          this.incRubles = rubles(this.inc)
+          copRubles = this.incRubles.split(' ').pop()
           let incRub = this.incRubles.replace(/[0-9].*/, '')
 
           let incCop = rubles(this.pennyI()).replace(/руб.*/, '')
@@ -116,14 +119,14 @@ window.onload = function () {
         }
 
 
-        this.netIncRubles = rubles(this.netInc)
-        netCopRubles = this.netIncRubles.split(' ').pop()
-        if (this.netIncRubles == 0) {
+        if (this.netInc <= 0) {
           this.netIncRubles = "ноль рублей ноль копеек"
         } else if (this.pennyN() == 0) {
+          this.netIncRubles = rubles(this.netInc)
           this.netIncRubles = this.netIncRubles.replace(/[0-9].*/, '') + "ноль копеек"
         } else {
           this.netIncRubles = rubles(this.netInc)
+          netCopRubles = this.netIncRubles.split(' ').pop()
           let netIncRub = this.netIncRubles.replace(/[0-9].*/, '')
 
           let netIncCop = rubles(this.pennyN()).replace(/руб.*/, '')
